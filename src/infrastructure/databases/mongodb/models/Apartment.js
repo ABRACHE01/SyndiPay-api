@@ -45,8 +45,8 @@ const apartmentSchema = new Schema(
     isDeleted: {
       type: Boolean,
       default: false,
+    }
     },
-  },
   { timestamps: true }
 );
 
