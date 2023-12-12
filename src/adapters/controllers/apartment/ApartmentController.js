@@ -4,7 +4,7 @@ const UpdateApartmentUseCase = require("../../../application/usecases/apartment/
 const DeleteApartmentUseCase = require("../../../application/usecases/apartment/DeleteApartmentUseCase");
 const GetAllApartmentsUseCase = require("../../../application/usecases/apartment/GetAllApartmentsUseCase");
 
-class MenuController {
+class ApartmentController {
   constructor() {
     this.createApartmentUseCase = new CreateApartmentUseCase();
     this.getApartmentByIdUseCase = new GetApartmentByIdUseCase();
@@ -16,9 +16,9 @@ class MenuController {
   createApartment = async (req, res) => {
     const  inputData  = req.body;
     const data = {...inputData } 
-    const { status, message, menu } = await this.createApartmentUseCase.execute(data);
+    const { status, message, apartment } = await this.createApartmentUseCase.execute(data);
 
-    res.status(status).json({ message, menu });
+    res.status(status).json({ message, apartment });
   };
 
   getApartmentById = async (req, res) => {
@@ -50,4 +50,4 @@ class MenuController {
   };
 }
 
-module.exports = MenuController;
+module.exports = ApartmentController;

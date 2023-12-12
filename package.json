@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:seed": "node ./src/scripts/SeedDatabase.js"
+    "db:seed": "node ./src/scripts/SeedDatabase.js",
+    "db:drop": "node ./src/scripts/DropDatabase.js"
+
   },
   "author": "",
   "license": "ISC",

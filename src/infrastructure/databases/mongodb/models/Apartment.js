@@ -14,12 +14,9 @@ const apartmentSchema = new Schema(
       type: String,
       required: true,
     },
-    owner: {
-      type: String,
-      default: null,
-    },
-    ownerPhoneNumber: {
-      type: String,
+    client: {
+      type: Schema.Types.ObjectId,
+      ref: "Client", 
       default: null,
     },
     floor: {
@@ -42,11 +39,15 @@ const apartmentSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    isOccupied: {
+      type: Boolean,
+      default: false,
+    },
     isDeleted: {
       type: Boolean,
       default: false,
     }
-    },
+  },
   { timestamps: true }
 );
 

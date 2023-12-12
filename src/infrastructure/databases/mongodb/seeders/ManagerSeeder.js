@@ -22,7 +22,6 @@ class ManagerSeeder {
           roleNames: ['manager'],
         };
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(manager.password, 10);
         manager.password = hashedPassword;
 

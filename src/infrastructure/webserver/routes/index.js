@@ -2,6 +2,7 @@ const express = require("express");
 const authRoutes = require("./auth/authRoutes");
 const apartmentRoutes = require("./apartment/apartmentRoutes");
 const paymentRoutes = require("./payment/apartmentRoutes");
+const clientRoutes = require("./Client/ClientRoutes");
 
 const router = express.Router();
 
@@ -11,6 +12,8 @@ router.use(express.urlencoded({ extended: true }));
 router.use("/auth", authRoutes);
 router.use("/apartments", apartmentRoutes);
 router.use("/payments", paymentRoutes);
+router.use("/clients", clientRoutes);
+
 
 router.use((err, req, res, next) => {
   console.error(err.stack);
