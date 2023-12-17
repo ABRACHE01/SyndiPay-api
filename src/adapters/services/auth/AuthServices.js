@@ -130,28 +130,27 @@ class AuthServices {
 
   verifyAccessToken = async (token) => {
     const { access_token_secret } = this.jsonWebToken;
-
+  
     try {
-      const payload = await this.jsonWebToken.verify(
-        token,
-        access_token_secret
-      );
-
+      const payload = await this.jsonWebToken.verify(token, access_token_secret);
+  
       return {
         status: 200,
         payload,
       };
     } catch (err) {
-      const error = new Error(
-        `Access Denied: ${
-          err.message.includes("jwt expired")
-            ? "Token expired"
-            : "Invalid token"
-        } `
-      );
-      error.status = 401;
-
-      throw error;
+      let errorMessage;
+  
+      if (err.message.includes("jwt expired")) {
+        errorMessage = "Token expired";
+      } else {
+        errorMessage = "Invalid token";
+      }
+  
+      return {
+        status: 401,
+        error: errorMessage,
+      };
     }
   };
 

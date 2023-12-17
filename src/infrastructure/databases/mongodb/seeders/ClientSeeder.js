@@ -17,7 +17,6 @@ class ClientSeeder {
             email: 'johndoe@example.com',
             phoneNumber: '1234567890',
             CIN: 'JH1345',
-            dateOfBirth: new Date('1990-01-01'),
           },
           {
             firstName: 'Jane',
@@ -25,7 +24,6 @@ class ClientSeeder {
             email: 'janesmith@example.com',
             phoneNumber: '9876543210',
             CIN: 'JH1345',
-            dateOfBirth: new Date('1995-05-10'),
           },
         ];
 

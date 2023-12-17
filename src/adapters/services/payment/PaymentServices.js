@@ -68,7 +68,13 @@ class PaymentServices {
       
         return payments;
       };
-      
+
+      getPaymentsByApartmentId = async (apartmentId) => {
+        const payments = await this.paymentRepository.findByApartmentId(apartmentId);
+    
+        return payments;
+      };
+          
       validateCreatePayment = async (data) => {
         const { error: validationError } = this.validateData(data, "addPayment");
       

@@ -6,7 +6,6 @@ const updateClientSchema = Joi.object({
   email: Joi.string().email(),
   phoneNumber: Joi.string(),
   CIN: Joi.string(),
-  dateOfBirth: Joi.date(),
   isDeleted: Joi.boolean().default(false),
   isActiveResident: Joi.boolean().default(true),
 });

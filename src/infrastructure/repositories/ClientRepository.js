@@ -10,7 +10,7 @@ class ClientRepository extends BaseRepository {
   updateApartmentsOccupancyStatus = async (clientId) => {
     try {
       await Apartment.updateMany(
-        { client: clientId, isDeleted: false },
+        { clients: { $in: [clientId] }, isDeleted: false },
         { $set: { isOccupied: false } }
       );
     } catch (error) {
@@ -18,7 +18,6 @@ class ClientRepository extends BaseRepository {
     }
   };
 
-  
   softDelete = async (id) => {
     try {
       const deletedClient = await this.model.findByIdAndUpdate(
@@ -26,7 +25,6 @@ class ClientRepository extends BaseRepository {
         { isDeleted: true , isActiveResident: false },
         { new: true }
       );
-  
       await this.updateApartmentsOccupancyStatus(deletedClient._id);
   
       return deletedClient;

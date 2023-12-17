@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles",
     "db:seed": "node ./src/scripts/SeedDatabase.js",
     "db:drop": "node ./src/scripts/DropDatabase.js"
-
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +22,8 @@
     "mongoose": "^8.0.2",
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

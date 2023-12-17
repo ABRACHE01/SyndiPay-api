@@ -25,17 +25,13 @@ const clientSchema = new Schema(
         type: String,
         required: true,
       },
-      dateOfBirth: {
-        type: Date,
-        required: true,
-      },
       isDeleted: {
         type: Boolean,
         default: false,
       },
       isActiveResident:{
         type: Boolean,
-        default: true,
+        default: false,
       },
     },
     { timestamps: true }

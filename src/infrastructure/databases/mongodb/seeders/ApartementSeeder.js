@@ -2,7 +2,6 @@ const ApartmentRepository = require('../../../repositories/ApartmentRepository')
 const ClientRepository = require('../../../repositories/ClientRepository');
 const ManagerRepository = require('../../../repositories/UserRepository');
 
-
 class ApartmentSeeder {
   constructor() {
     this.apartmentRepository = new ApartmentRepository();
@@ -17,29 +16,30 @@ class ApartmentSeeder {
       if (existingApartments.length === 0) {
         const clients = await this.clientRepository.find();
         const managers = await this.managerRepository.find();
+        console.log(managers)
 
         const apartments = [
           {
             name: 'Apartment 1',
             building: 'Building A',
-            client: clients[0]._id, 
+            clients: [clients[0]._id], 
             floor: 2,
             paymentAmount: 1000,
             paymentFrequency: 'monthly',
             paymentDueDate: 1,
-            isOccupied : true,
-            addedBy:managers[0]._id, 
+            isOccupied: true,
+            addedBy: managers[0]._id,
           },
           {
             name: 'Apartment 2',
             building: 'Building B',
-            client:  clients[1]._id, 
+            clients: [clients[1]._id], 
             floor: 5,
             paymentAmount: 1500,
             paymentFrequency: 'monthly',
             paymentDueDate: 5,
-            isOccupied : true,
-            addedBy:managers[0]._id, 
+            isOccupied: true,
+            addedBy: managers[0]._id,
           },
         ];
 

@@ -9,6 +9,8 @@ paymentRoutes.get("/", paymentController.getAllPayments);
 
 paymentRoutes.get("/:paymentId", paymentController.getPaymentById);
 
+paymentRoutes.get("/apartment/:apartmentId", paymentController.getPaymentsByApartmentId); 
+
 paymentRoutes.put("/:paymentId", paymentController.updatePayment);
 
 paymentRoutes.delete("/:paymentId", paymentController.deletePayment);

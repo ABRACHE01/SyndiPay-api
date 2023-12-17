@@ -6,9 +6,8 @@ const addClientSchema = Joi.object({
     email: Joi.string().email().required(),
     phoneNumber: Joi.string().required(),
     CIN: Joi.string().required(),
-    dateOfBirth: Joi.date().required(),
     isDeleted: Joi.boolean().default(false),
-    isActiveResident: Joi.boolean().default(true),
+    isActiveResident: Joi.boolean().default(false),
 });
 
 module.exports = addClientSchema;

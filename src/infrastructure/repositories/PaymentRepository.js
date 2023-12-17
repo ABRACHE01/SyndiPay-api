@@ -24,6 +24,19 @@ class PaymentRepository extends BaseRepository {
     }
   };
 
+  findByApartmentId = async (apartmentId, includeDeleted = false) => {
+    const query = includeDeleted
+      ? { apartment: apartmentId }
+      : { apartment: apartmentId, isDeleted: false };
+
+    try {
+      return await this.model.find(query);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+
 }
 
 module.exports = PaymentRepository;

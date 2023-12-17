@@ -1,6 +1,6 @@
 class ErrorHandler {
   static notFound = (req, res, next) => {
-    const error = new Error("Not Found");
+    const error = new Error("Not Found 404");
     error.status = 404;
     next(error);
   };

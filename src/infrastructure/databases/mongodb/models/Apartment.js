@@ -14,11 +14,11 @@ const apartmentSchema = new Schema(
       type: String,
       required: true,
     },
-    client: {
+    clients: [{
       type: Schema.Types.ObjectId,
       ref: "Client", 
       default: null,
-    },
+    }],
     floor: {
       type: Number,
       required: true,

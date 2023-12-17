@@ -3,6 +3,7 @@ const GetPaymentByIdUseCase = require("../../../application/usecases/payment/Get
 const UpdatePaymentUseCase = require("../../../application/usecases/payment/UpdatePaymentUseCase");
 const DeletePaymentUseCase = require("../../../application/usecases/payment/DeletePaymentUseCase");
 const GetAllPaymentsUseCase = require("../../../application/usecases/payment/GetAllPaymentsUseCase");
+const GetByApartmentIdUseCase = require("../../../application/usecases/payment/GetByApartmentIdUseCase");
 
 class PaymentController {
   constructor() {
@@ -11,6 +12,7 @@ class PaymentController {
     this.updatePaymentUseCase = new UpdatePaymentUseCase();
     this.deletePaymentUseCase = new DeletePaymentUseCase();
     this.getAllPaymentsUseCase = new GetAllPaymentsUseCase();
+    this.getByApartmentIdUseCase = new GetByApartmentIdUseCase();
   }
 
   createPayment = async (req, res) => {
@@ -52,6 +54,15 @@ class PaymentController {
   getAllPayments = async (req, res) => {
     const { status, message, payments } =
       await this.getAllPaymentsUseCase.execute();
+    res.status(status).json({ message, payments });
+  };
+
+  getPaymentsByApartmentId = async (req, res) => {
+    const { apartmentId } = req.params;
+
+    const { status, message, payments } =
+      await this.getByApartmentIdUseCase.execute(apartmentId);
+
     res.status(status).json({ message, payments });
   };
 }
