@@ -17,7 +17,7 @@ class LoginUseCase {
       const refreshToken = await this.authServices.generateRefreshToken({
         id: user.id,
       });
-
+      
       await this.authServices.saveRefreshToken(refreshToken, user.id);
 
       return {

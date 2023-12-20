@@ -16,6 +16,7 @@ class ClientSeeder {
             lastName: 'Doe',
             email: 'johndoe@example.com',
             phoneNumber: '1234567890',
+            isActiveResident: true,
             CIN: 'JH1345',
           },
           {
@@ -23,6 +24,7 @@ class ClientSeeder {
             lastName: 'Smith',
             email: 'janesmith@example.com',
             phoneNumber: '9876543210',
+            isActiveResident: true,
             CIN: 'JH1345',
           },
         ];

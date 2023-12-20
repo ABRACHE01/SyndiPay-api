@@ -16,7 +16,6 @@ class ApartmentSeeder {
       if (existingApartments.length === 0) {
         const clients = await this.clientRepository.find();
         const managers = await this.managerRepository.find();
-        console.log(managers)
 
         const apartments = [
           {
