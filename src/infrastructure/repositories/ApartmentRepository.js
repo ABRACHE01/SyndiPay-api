@@ -74,6 +74,7 @@ class ApartmentRepository extends BaseRepository {
           { new: true }
         );
       }
+
       await this.model.findByIdAndUpdate(
         apartment._id,
         { isOccupied: true },
@@ -81,6 +82,38 @@ class ApartmentRepository extends BaseRepository {
       );
   
       return apartment;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  update = async (id, data) => {
+    try {
+      const existingDoc = await this.findById(id);
+  
+      if (existingDoc) {
+        const updatedApartment = await this.model.findByIdAndUpdate(id, data, { new: true });
+
+        if (data.clients ) {
+          const clientId = data.clients;
+  
+          await Client.findByIdAndUpdate(
+            clientId,
+            { isActiveResident: true },
+            { new: true }
+          );
+        }
+  
+        await this.model.findByIdAndUpdate(
+          updatedApartment._id,
+          { isOccupied: true },
+          { new: true }
+        );
+  
+        return updatedApartment;
+      } else {
+        throw new Error("Document not found or soft-deleted.");
+      }
     } catch (error) {
       throw new Error(error);
     }

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "jest --detectOpenHandles",
     "db:seed": "node ./src/scripts/SeedDatabase.js",
     "db:drop": "node ./src/scripts/DropDatabase.js"
