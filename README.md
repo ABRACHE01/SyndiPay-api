@@ -1,10 +1,10 @@
-# Livraison-Marhaba
+# SyndiPay
 
-This is the backend API for Livraison Marhaba, a restaurant delivery application. It powers the core functionality of order processing, user management, and delivery tracking.
+syndiPay is a web-based system for managing monthly payments in a real estate management agency.
 
 ## Table of Contents
 
-- [Livraison-Marhaba](#livraison-marhaba)
+- [SyndiPay](#SyndiPay)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
     - [1. Installation](#1-installation)
@@ -20,11 +20,10 @@ This is the backend API for Livraison Marhaba, a restaurant delivery application
   - [File Structure](#file-structure)
     - [1. Main Directories](#1-main-directories)
     - [2. Clean Architecture Layers](#2-clean-architecture-layers)
-  - [API Documentation](#api-documentation)
 
 ## Getting Started
 
-These instructions will help you set up and run the Livraison Marhaba API on your local machine for development and testing purposes.
+These instructions will help you set up and run the SyndiPay API on your local machine for development and testing purposes.
 
 ### 1. Installation
 
